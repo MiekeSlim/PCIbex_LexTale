@@ -42,7 +42,7 @@ read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols)
 
 ## Prepare raw results file
 results <- subset(read.pcibex("results.csv"), PennElementType == 'Selector')  # Here, it is assumed that you saved the results file as a csv file with the name 'results' in the R working directory, moreover we're only interested in the responses on the Selector element in the trials
-results = select(results, Item.number, Element.number, Block, Subject, Stimulus, Type, Block, Value) # I have selected the only columns I am interested in for the analyses, in order to get a better overview of the data, feel free to adjust to your liking 
+results = select(results, Item.number, Element.number, Block, Subject, Stimulus, Type, Block, Value) # Only select the  columns of interest for the analyses, in order to get a better overview of the data.
 ## Deduce the accuracy per trial per participant:
 for(i in 1:nrow(results)){
   if ((results$Type[i] == "word") && (results$Value[i] == "yes")) {
